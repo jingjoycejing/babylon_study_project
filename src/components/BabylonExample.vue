@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue'
-import { BasicScene } from '../BabylonExamples/BasicScene'
+import { onMounted, ref } from 'vue'
+//import { BasicScene } from '././BasicSceneBabylonExamples/BasicScene'
+import { StandardMaterials } from '../BabylonExamples/StandardMaterials'
 
 defineProps({
   msg: String
@@ -8,18 +9,18 @@ defineProps({
 
 const count = ref(0)
 
-function click() {
+onMounted(()=>{
   const canvas = document.querySelector('canvas')
-  new BasicScene(canvas)
+  new StandardMaterials(canvas)
   //console.log(this.msg) setup里面怎么获取
-}
+})
 
 
 </script>
 
 <template>
   <div> 
-    <h3 @click="click">{{msg}}</h3>
+    <h3 >{{msg}}</h3>
     <canvas></canvas>
   </div>
 </template>
